@@ -1,9 +1,7 @@
-<html>
-    <title>Popular Notes List</title>
+{% extends "base.html" %}
 
-    <body>
-        {% for note in notes %}
-            <li>{{note.title}}</li>
-        {% endfor %}
-    </body>
-</html>
+{% block content %}
+    {% for note in notes %}
+        <li>{{note.title}}</li>
+    {% endfor %}
+{% endblock %}

@@ -1,9 +1,16 @@
-<html>
-    <title>Notes List</title>
+{% extends "base.html" %}
 
-    <body>
+{% block content %}
+    <h1 class="my-5">Notes List</h1>
+
+    <div class="row row-cols3 g-2">
         {% for note in notes %}
-            <li>{{note.title}}</li>
+        <div class="col">
+            <div class="p-3 border">
+                <a href="{% url 'notes.detail' pk=note.id %}"><h3>{{note.title}}</h3></a>
+                {{note.text|truncatechars:5}}
+            </div>
+        </div>
         {% endfor %}
-    </body>
-</html>
+    </div>
+{% endblock %}
